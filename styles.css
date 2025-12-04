@@ -1,6 +1,42 @@
-/* ... (Tus estilos anteriores se mantienen igual) ... */
+/* Estilos base existentes */
+body {
+  background: #0f1115;
+  color: #e5e7eb;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
 
-/* Estilos nuevos para el formulario */
+.card {
+  background: #1a1c20;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 400px;
+  margin: auto;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.character {
+  width: 70px;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+/* Formulario */
 .form-group {
   margin-bottom: 12px;
   text-align: left;
@@ -11,26 +47,47 @@
   font-size: 0.85rem;
   color: #94a3b8;
   margin-bottom: 4px;
-  margin-left: 4px;
 }
 
 .input-dark {
   width: 100%;
   padding: 12px;
   border-radius: 12px;
-  background: #181a1d; /* Mismo fondo que tu upload-box */
+  background: #181a1d;
   border: 1px solid #4d5562;
   color: #e5e7eb;
   font-size: 1rem;
   outline: none;
-  transition: border-color 0.2s;
 }
 
 .input-dark:focus {
-  border-color: #9ecbff; /* El azul que usaste en bucket-highlight */
+  border-color: #9ecbff;
 }
 
-/* Ajuste para el select */
-select.input-dark {
+/* Botón */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #4f8cff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
   cursor: pointer;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #6aa2ff;
+}
+
+/* Resultados */
+.result {
+  display: none;
+  margin-top: 20px;
+}
+
+.status {
+  margin-top: 10px;
+  font-size: 0.9rem;
 }
