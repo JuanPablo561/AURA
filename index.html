@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>AURA – Control y Registro</title>
+  <title>AURA – Control de Lámpara</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,34 +12,33 @@
     <div class="hero">
       <img src="personaje.png" alt="AURA" class="character" />
       <div>
-        <div class="title">AURA – Envío de Datos</div>
-        <div class="subtitle">
-          Envía los datos del sensor LDR y el estado del LED a Oracle APEX.
-        </div>
+        <div class="title">AURA – Panel de Control</div>
+        <div class="subtitle">Ajusta los parámetros y envíalos a Oracle APEX.</div>
       </div>
     </div>
 
-    <div class="form-group">
-      <label>Valor del LDR:</label>
-      <input type="number" id="ldrInput" placeholder="Ej. 650" class="input-dark">
+    <!-- Slider LDR -->
+    <div class="widget">
+      <label>Intensidad LDR</label>
+      <input type="range" id="ldrSlider" min="0" max="1023" value="500">
+      <div class="widget-value" id="ldrValue">500</div>
     </div>
 
-    <div class="form-group">
-      <label>Estado del LED (0 = Apagado, 1 = Encendido):</label>
-      <select id="ledInput" class="input-dark">
-        <option value="0">0</option>
-        <option value="1">1</option>
-      </select>
+    <!-- Toggle LED -->
+    <div class="widget">
+      <label>Estado del LED</label>
+      <label class="switch">
+        <input type="checkbox" id="ledToggle">
+        <span class="slider round"></span>
+      </label>
+      <div class="widget-value" id="ledValue">0</div>
     </div>
 
-    <div class="form-group">
-      <label>ID del LED (1 – 4):</label>
-      <select id="idLedInput" class="input-dark">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-      </select>
+    <!-- Slider ID LED -->
+    <div class="widget">
+      <label>ID LED (1-4)</label>
+      <input type="range" id="idLedSlider" min="1" max="4" value="1">
+      <div class="widget-value" id="idLedValue">1</div>
     </div>
 
     <button id="sendBtn" class="btn">Enviar JSON a Oracle APEX</button>
