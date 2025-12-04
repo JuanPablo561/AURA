@@ -1,0 +1,36 @@
+/* ... (Tus estilos anteriores se mantienen igual) ... */
+
+/* Estilos nuevos para el formulario */
+.form-group {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  margin-bottom: 4px;
+  margin-left: 4px;
+}
+
+.input-dark {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  background: #181a1d; /* Mismo fondo que tu upload-box */
+  border: 1px solid #4d5562;
+  color: #e5e7eb;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-dark:focus {
+  border-color: #9ecbff; /* El azul que usaste en bucket-highlight */
+}
+
+/* Ajuste para el select */
+select.input-dark {
+  cursor: pointer;
+}
