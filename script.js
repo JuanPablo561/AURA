@@ -3,46 +3,54 @@ const statusDiv = document.getElementById("status");
 const resultBox = document.getElementById("result");
 const jsonPreview = document.getElementById("jsonPreview");
 
-// Datos APEX
+// APEX
 const HOST = "oracleapex.com";
 const ENDPOINT = "/ords/a01286499/aura/led/control";
 
+// Widgets
+const ldrSlider = document.getElementById("ldrSlider");
+const ledToggle = document.getElementById("ledToggle");
+const idLedSlider = document.getElementById("idLedSlider");
+
+// Textos de valor
+const ldrValue = document.getElementById("ldrValue");
+const ledValue = document.getElementById("ledValue");
+const idLedValue = document.getElementById("idLedValue");
+
+// Eventos para actualizar valores UI
+ldrSlider.addEventListener("input", () => {
+  ldrValue.textContent = ldrSlider.value;
+});
+
+ledToggle.addEventListener("change", () => {
+  ledValue.textContent = ledToggle.checked ? 1 : 0;
+});
+
+idLedSlider.addEventListener("input", () => {
+  idLedValue.textContent = idLedSlider.value;
+});
+
+// Botón para enviar JSON
 sendBtn.addEventListener("click", async () => {
 
-  const ldr = document.getElementById("ldrInput").value;
-  const ledstate = document.getElementById("ledInput").value;
-  const id_led = document.getElementById("idLedInput").value;
-
-  if (!ldr) {
-    alert("Debe ingresar un valor de LDR.");
-    return;
-  }
-
-  statusDiv.textContent = "Preparando JSON...";
-  resultBox.style.display = "none";
-
-  // JSON exacto que se enviará al servidor
   const dataToSend = {
-    ldrstate: parseInt(ldr),
-    ledstate: parseInt(ledstate),
-    id_led: parseInt(id_led)
+    ldrstate: parseInt(ldrSlider.value),
+    ledstate: ledToggle.checked ? 1 : 0,
+    id_led: parseInt(idLedSlider.value)
   };
 
   jsonPreview.textContent = JSON.stringify(dataToSend, null, 2);
   resultBox.style.display = "block";
 
-  // Construcción de la URL final
   const fullURL = `https://${HOST}${ENDPOINT}`;
-
+  
   try {
     statusDiv.textContent = "Enviando datos...";
     statusDiv.style.color = "#9ecbff";
 
     const response = await fetch(fullURL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataToSend)
     });
 
