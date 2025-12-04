@@ -27,10 +27,11 @@
     <!-- Toggle LED -->
     <div class="widget">
       <label>Estado del LED</label>
-      <label class="switch">
-        <input type="checkbox" id="ledToggle">
-        <span class="slider round"></span>
-      </label>
+      <div class="button-group">
+        <button class="mode-btn" data-value="0">APAGADO</button>
+        <button class="mode-btn" data-value="1">ENCENDIDO</button>
+        <button class="mode-btn" data-value="2">AUTOMÁTICO</button>
+      </div>
       <div class="widget-value" id="ledValue">0</div>
     </div>
 
