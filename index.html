@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>SmartWaste - Registro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="card">
+    <div class="hero">
+      <img src="personaje.png" alt="SmartWaste" class="character" />
+      <div>
+        <div class="title">📊 Registro de Datos</div>
+        <div class="subtitle">
+          Guarda tus actividades de reciclaje en la base de datos externa.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Usuario:</label>
+      <input type="text" id="userInput" placeholder="Ej. Juan Pérez" class="input-dark">
+    </div>
+
+    <div class="form-group">
+      <label>Tipo de Residuo:</label>
+      <select id="typeInput" class="input-dark">
+        <option value="plastico">Plástico</option>
+        <option value="metal">Metal</option>
+        <option value="organico">Orgánico</option>
+        <option value="vidrio">Vidrio</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Peso Aprox (kg):</label>
+      <input type="number" id="weightInput" placeholder="0.5" class="input-dark">
+    </div>
+
+    <button id="saveBtn" class="btn">💾 Guardar en Base de Datos</button>
+    <div id="status" class="status"></div>
+
+    <div id="result" class="result">
+      <h3>JSON Generado:</h3>
+      <pre id="jsonPreview" style="color: #9ecbff; font-size: 0.8rem; overflow-x: auto;"></pre>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
